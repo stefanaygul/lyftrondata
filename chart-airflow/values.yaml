@@ -49,7 +49,7 @@ airflowHome: /opt/airflow
 defaultAirflowRepository: 201076423/airflow
 
 # Default airflow tag to deploy
-defaultAirflowTag: "2.2.0-nano"
+defaultAirflowTag: "2.2.0-java11-user-airflow"
 
 # Airflow version (Used to make some decisions based on Airflow Version being deployed)
 airflowVersion: "2.2.0"
@@ -244,6 +244,12 @@ env:
   value: "604800"
 - name: AIRFLOW__SCHEDULER__SCHEDULE_AFTER_TASK_EXECUTION
   value: "False"
+- name: "AIRFLOW__KUBERNETES__DELETE_WORKER_PODS"
+  value: "false"
+- name: "AIRFLOW__WEBSERVER__LOG_FETCH_TIMEOUT_SEC"
+  value: "15"
+- name: "AIRFLOW__LOGGING__LOGGING_LEVEL"
+  value: "INFO"
 
 # Volumes for all airflow containers
 volumes: []
