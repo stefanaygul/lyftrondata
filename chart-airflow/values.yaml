@@ -49,7 +49,7 @@ airflowHome: /opt/airflow
 defaultAirflowRepository: 201076423/airflow
 
 # Default airflow tag to deploy
-defaultAirflowTag: "2.2.0-java11-extras-airpyspark"
+defaultAirflowTag: "2.2.0-java11-extras-airpyspark-cnff"
 
 # Airflow version (Used to make some decisions based on Airflow Version being deployed)
 airflowVersion: "2.2.0"
@@ -244,8 +244,6 @@ env:
   value: "604800"
 - name: AIRFLOW__SCHEDULER__SCHEDULE_AFTER_TASK_EXECUTION
   value: "False"
-- name: "AIRFLOW__KUBERNETES__DELETE_WORKER_PODS"
-  value: "false"
 - name: "AIRFLOW__WEBSERVER__LOG_FETCH_TIMEOUT_SEC"
   value: "15"
 - name: "AIRFLOW__LOGGING__LOGGING_LEVEL"
@@ -350,7 +348,7 @@ data:
   # data:
   #   connection: base64_encoded_connection_string
 
-  metadataSecretName: ~
+  metadataSecretName: lyftrondata-db
   # When providing secret names and using the same database for metadata and
   # result backend, for Airflow < 2.4.0 it is necessary to create a separate
   # secret for result backend but with a db+ scheme prefix.
@@ -1692,7 +1690,7 @@ cleanup:
 # Configuration for postgresql subchart
 # Not recommended for production
 postgresql:
-  enabled: true
+  enabled: false
   postgresqlPassword: postgres
   postgresqlUsername: postgres
 
