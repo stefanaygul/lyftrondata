@@ -25,6 +25,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: debian-11/Dockerfile
+          context: ./debian-11
           push: true
           tags: 201076423/spark:jdk11
