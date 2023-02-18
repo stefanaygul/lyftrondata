@@ -27,4 +27,4 @@ jobs:
         with:
           context: ./debian-11
           push: true
-          tags: 201076423/spark:jdk11
+          tags: 201076423/spark32:jdk11
