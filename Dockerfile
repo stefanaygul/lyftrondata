@@ -16,7 +16,7 @@ ENV SPARK_HOME /usr/local/spark
 
 # Spark submit binaries and jars (Spark binaries must be the same version of spark cluster)
 RUN cd "/tmp"
-RUN wget --no-verbose "https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz"
+RUN curl -o "https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz"
 RUN tar -xvzf "spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz"
 RUN mkdir -p "${SPARK_HOME}/bin"
 RUN mkdir -p "${SPARK_HOME}/assembly/target/scala-2.12/jars"
