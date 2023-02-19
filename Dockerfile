@@ -15,14 +15,14 @@ RUN apt update && apt install -y nano && apt-get -y install openjdk-11-jre-headl
 ENV SPARK_HOME /usr/local/spark
 
 # Spark submit binaries and jars (Spark binaries must be the same version of spark cluster)
-RUN cd "/tmp" && \
-        wget --no-verbose "https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz" && \
-        tar -xvzf "spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz" && \
-        mkdir -p "${SPARK_HOME}/bin" && \
-        mkdir -p "${SPARK_HOME}/assembly/target/scala-2.12/jars" && \
-        cp -a "spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}/bin/." "${SPARK_HOME}/bin/" && \
-        cp -a "spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}/jars/." "${SPARK_HOME}/assembly/target/scala-2.12/jars/" && \
-        rm "spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz"
+RUN cd "/tmp"
+RUN wget --no-verbose "https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz"
+RUN tar -xvzf "spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz"
+RUN mkdir -p "${SPARK_HOME}/bin"
+RUN mkdir -p "${SPARK_HOME}/assembly/target/scala-2.12/jars"
+RUN cp -a "spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}/bin/." "${SPARK_HOME}/bin/"
+RUN cp -a "spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}/jars/." "${SPARK_HOME}/assembly/target/scala-2.12/jars/"
+RUN rm "spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz"
 
 # Create SPARK_HOME env var
 RUN export SPARK_HOME
