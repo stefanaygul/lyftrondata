@@ -8,7 +8,7 @@ ARG HADOOP_VERSION=3.2
 
 ENV SPARK_HOME /usr/local/spark
 # Spark submit binaries and jars (Spark binaries must be the same version of spark cluster)
-RUN curl -O https://apache.mirrors.nublue.co.uk/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop$HADOOP_VERSION.tgz && \
+RUN curl -O "https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz" && \
     tar xfz spark-$SPARK_VERSION-bin-hadoop$HADOOP_VERSION.tgz && \
     rm spark-$SPARK_VERSION-bin-hadoop$HADOOP_VERSION.tgz && \
     mv spark-$SPARK_VERSION-bin-hadoop$HADOOP_VERSION /opt/spark && \
