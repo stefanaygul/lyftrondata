@@ -26,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: 201076423/airflow:2.2.0-java11-extras-airpyspark-3.2.2
+          tags: 201076423/airflow:test-airflow3.2
