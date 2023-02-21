@@ -5,8 +5,6 @@ RUN apt update && apt install -y nano && apt-get -y install openjdk-11-jre-headl
 ARG SPARK_VERSION=3.2.2
 ARG HADOOP_VERSION=3.2
 
-
-
 ENV SPARK_HOME /usr/local/spark
 # Spark submit binaries and jars (Spark binaries must be the same version of spark cluster)
 RUN curl -O "https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz" && \
@@ -22,4 +20,4 @@ USER airflow
 
 COPY requirements.txt /requirements.txt
 RUN  /usr/local/bin/python -m pip3 install --upgrade pip
-RUN  cd / && pip3 install -r requirements.txt
+RUN  cd / && pip3 install -r requirements.txt && pip3 install openlineage-airflow plyvel certifi
