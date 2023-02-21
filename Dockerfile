@@ -19,5 +19,5 @@ ENV HADOOP_HOME /usr/local/hadoop
 USER airflow
 
 COPY requirements.txt /requirements.txt
-RUN  /usr/local/bin/python -m pip3 install --upgrade pip
+RUN  /usr/local/bin/python -m pip install --upgrade pip
 RUN  cd / && pip3 install -r requirements.txt && pip3 install openlineage-airflow plyvel certifi
