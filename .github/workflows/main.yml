@@ -26,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: 201076423/airflow:test-airflowv1
+          tags: 201076423/airflow:test-airflowv2

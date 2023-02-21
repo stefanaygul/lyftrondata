@@ -1,7 +1,6 @@
+openlineage-airflow
+plyvel
+certifi
 celery
-kombu
-tornado
-werkzeug
 pyspark==3.2.2
-SQLAlchemy
-wtforms
+apache-airflow-providers-apache-spark
